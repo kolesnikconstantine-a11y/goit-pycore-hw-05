@@ -8,12 +8,9 @@ from pathlib import Path
 def parse_log_line(line: str) -> dict:
     dict = {}
     data = line.split(' ')
-    #print(data)
     date, time, level, *msg = data
     msg = ' '.join(msg).strip()
     dict = {'date': date, 'time' : time, 'level': level, 'msg': msg}
-    #print(d)
-    #print(dict)
     return dict
 
 # Функція для завантаження логів з файлу.
@@ -33,8 +30,6 @@ def filter_logs_by_level(logs: list, level: str) -> list:
     print(f"Деталі логів для рівня '{level.upper()}':")
     #print(logs)
     for el in logs:
-        #date, time, level, *msg = el
-        #print(el)
         for key, value in el.items():
             if value == level.upper():
                 print(el['date'] +' '+ el['time'] + ' - ' + el['msg'])
