@@ -1,9 +1,11 @@
 import re
+# приймає рядок як аргумент і повертає генератор, що ітерує по всіх дійсних числах у тексті
 def generator_numbers(text: str):
+    #регулярні вираз, з урахуванням, що числа чітко відокремлені пробілами.
     pattern = r"\s\d+\.\d+\s"
     matches = re.findall(pattern, text)
     for el in matches:
-        #print(f"here yeild {el}")
+        # Застосування конструкції yield у функції
         yield el.strip()
 
 # sum_profit коректно обробляє дані від generator_numbers і підсумовує всі числа.
